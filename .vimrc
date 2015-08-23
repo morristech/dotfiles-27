@@ -11,9 +11,13 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " HERE!! WRITE PLUGINGS!!
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'rking/ag.vim'
+neobundle 'scrooloose/nerdtree'
+neobundle 'rking/ag.vim'
+neobundle 'shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tomtom/tcomment_vim'
 
 call neobundle#end()
 
@@ -28,7 +32,11 @@ NeoBundleCheck
 "-------------------------
 
 "NERDTree" {{{
-   map <C-n> :NERDTreeToggle<CR>
+   map <C-t> :NERDTreeToggle<CR>
+"}}}
+
+"Unite" {{{
+   map <C-n> :Unite -buffer-name=file file<CR>
 "}}}
 
 "EasyMotion" {{{
