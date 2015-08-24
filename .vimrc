@@ -1,5 +1,5 @@
 "---------------------------
-" Neobundle Settings
+" NeoBundle Settings.
 "---------------------------
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -24,11 +24,16 @@ NeoBundleCheck
 "-------------------------
 
 "NERDTree" {{{
-   map <C-t> :NERDTreeToggle<CR>
+  let file_name = expand("%:p")
+  if has('vim_starting') &&  file_name == ""
+	  autocmd VimEnter * execute 'NERDTree ./'
+	endif
+  map <C-t> :NERDTreeToggle<CR>
+  let NERDTreeShowHidden = 1
 "}}}
 
 "Unite" {{{
-   map <C-n> :Unite -buffer-name=file file<CR>
+  map <C-n> :UniteWithBufferDir -buffer-name=dotfiles file<CR>
 "}}}
 
 "EasyMotion" {{{
