@@ -13,7 +13,7 @@ NeoBundle 'Shougo/vimproc.vim', {
   \ 'build' : {
   \     'mac'     : 'make -f make_mac.mak',
   \     'linux'   : 'make',
-  \     'unix'    : 'gmake',
+  \     'unix'    : 'gmake'
   \    },
   \ }
 NeoBundle 'Shougo/neomru.vim'
@@ -104,4 +104,3 @@ set ignorecase
 set smartcase
 set showcmd
 set backspace=indent,eol,start
-
