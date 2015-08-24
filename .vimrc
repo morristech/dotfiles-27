@@ -42,12 +42,12 @@ NeoBundleCheck
 "}}}
 
 "Unite" {{{
-  map <C-n> :UniteWithBufferDir -buffer-name=dotfiles file<CR>
+   map <C-n> :UniteWithBufferDir -buffer-name=dotfiles file<CR>
 
-	let g:unite_source_history_yank_enable = 1
-	try
+  let g:unite_source_history_yank_enable = 1
+  try
     let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-		call unite#filters#sorter_default#use(['sorter_rank'])
+    call unite#filters#sorter_default#use(['sorter_rank'])
   catch
   endtry
   " Search a file in the filetree
