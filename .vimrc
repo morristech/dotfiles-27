@@ -33,23 +33,25 @@ NeoBundleCheck
 "-------------------------
 
 "NERDTree" {{{
-  let file_name = expand("%:p")
-  " if has('vim_starting') &&  file_name == ""
-	"   autocmd VimEnter * execute 'NERDTree ./'
-	" endif
-  map <C-t> :NERDTreeToggle<CR>
   let NERDTreeShowHidden = 1
+  let file_name = expand("%:p")
+  if has('vim_starting') &&  file_name == ""
+	  autocmd VimEnter * execute 'NERDTree ./'
+	endif
+
+  map <C-t> :NERDTreeToggle<CR>
 "}}}
 
 "Unite" {{{
-   map <C-n> :UniteWithBufferDir -buffer-name=dotfiles file<CR>
-
   let g:unite_source_history_yank_enable = 1
   try
     let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
     call unite#filters#sorter_default#use(['sorter_rank'])
   catch
   endtry
+
+  map <C-n> :UniteWithBufferDir -buffer-name=dotfiles file<CR>
+
   " Search a file in the filetree
   nnoremap <space><space> :<C-u>Unite -start-insert file_rec/async<CR>
   " Reset not it is <C-l> normally
@@ -79,6 +81,12 @@ NeoBundleCheck
   xmap g/ <Plug>(easymotion-sn)
   omap g/ <Plug>(easymotion-tn)
 "}}}
+
+" Global Keymap
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
 
 " Option
 syntax on
