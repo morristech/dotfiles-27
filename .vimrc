@@ -1,16 +1,11 @@
 "---------------------------
 " Neobundle Settings
 "---------------------------
-" set directory path to manage bundle
 set runtimepath+=~/.vim/bundle/neobundle.vim/
-
-" Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-" manage neobundle by neobundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" HERE!! WRITE PLUGINGS!!
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'Shougo/unite.vim'
@@ -21,12 +16,9 @@ NeoBundle 'tomtom/tcomment_vim'
 
 call neobundle#end()
 
-" Required:
 filetype plugin indent on
 
-" uninstallede plungins checker
 NeoBundleCheck
-
 "-------------------------
 " End: Neobundle Settings.
 "-------------------------
