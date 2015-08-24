@@ -9,6 +9,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+			\ 'build' : {
+			\     'windows' : 'tools\\update-dll-mingw',
+			\     'cygwin' : 'make -f make_cygwin.mak',
+			\     'mac' : 'make -f make_mac.mak',
+			\     'linux' : 'make',
+			\     'unix' : 'gmake',
+			\    },
+			\ }
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'tpope/vim-surround'
@@ -20,24 +29,35 @@ filetype plugin indent on
 
 NeoBundleCheck
 "-------------------------
-" End: Neobundle Settings.
+" End: NeoBundle Settings.
 "-------------------------
 
 "NERDTree" {{{
   let file_name = expand("%:p")
-  if has('vim_starting') &&  file_name == ""
-	  autocmd VimEnter * execute 'NERDTree ./'
-	endif
+  " if has('vim_starting') &&  file_name == ""
+	"   autocmd VimEnter * execute 'NERDTree ./'
+	" endif
   map <C-t> :NERDTreeToggle<CR>
   let NERDTreeShowHidden = 1
 "}}}
 
 "Unite" {{{
   map <C-n> :UniteWithBufferDir -buffer-name=dotfiles file<CR>
+
+	let g:unite_source_history_yank_enable = 1
+	try
+    let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+		call unite#filters#sorter_default#use(['sorter_rank'])
+  catch
+  endtry
+  " Search a file in the filetree
+  nnoremap <space><space> :<C-u>Unite -start-insert file_rec/async<CR>
+  " Reset not it is <C-l> normally
+  :nnoremap <space>r <Plug>(unite_restart)
 "}}}
 
 "EasyMotion" {{{
-  "General Configuration
+  " General Configuration
   let g:EasyMotion_do_mapping = 0
   let g:EasyMotion_enter_jump_first = 1
   let g:EasyMotion_space_jump_first = 1
