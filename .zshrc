@@ -75,10 +75,17 @@ export PATH=/usr/local/bin:$PATH
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# Android
 export ANDROID_HOME=/Applications/android-sdk-macosx
 export ANDROID_NDK=/Applications/android-ndk-r10
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+# adb-peco
+export PATH=$PATH:$HOME/git/tools/adb-peco/bin
 
+# Node
+export NODE_PATH=`npm root -g`
+
+# GO
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
