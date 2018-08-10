@@ -1,0 +1,11 @@
+[user]
+    name = wasabeef
+    email = dadadada.chop@gmail.com
+[core]
+    editor = vim
+[color]
+    ui = auto
+[push]
+    default = simple
+[alias]
+    showpr = "!f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
