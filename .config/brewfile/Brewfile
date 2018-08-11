@@ -1,6 +1,7 @@
 
-# Other Homebrew packages
-brew brew-file
+# tap repositories and their packages
+
+tap homebrew/core
 brew gdbm
 brew gettext
 brew git
@@ -29,5 +30,12 @@ brew vim
 brew xz
 brew zsh
 
-# Other Cask applications
+tap homebrew/cask-versions
+
+tap homebrew/cask
 cask java
+
+tap argon/mas
+
+tap rcmdnk/file
+brew brew-file
