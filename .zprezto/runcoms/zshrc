@@ -10,5 +10,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/git/dotfiles/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/git/dotfiles/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+### Exports
 export JAVA_HOME=`/usr/libexec/java_home -v "10"`
+export ZPLG_HOME="${ZDOTDIR:-$HOME}/.zplugin"
+
+### Added by Zplugin's installer
+source "$ZPLG_HOME/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
