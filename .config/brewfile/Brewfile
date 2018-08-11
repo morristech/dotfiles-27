@@ -1,0 +1,33 @@
+
+# Other Homebrew packages
+brew brew-file
+brew gdbm
+brew gettext
+brew git
+brew go
+brew gradle
+brew icu4c
+brew jemalloc
+brew libtermkey
+brew libuv
+brew libvterm
+brew libyaml
+brew luajit
+brew mas
+brew msgpack
+brew neovim
+brew node
+brew openssl
+brew perl
+brew python
+brew readline
+brew ruby
+brew sqlite
+brew tig
+brew unibilium
+brew vim
+brew xz
+brew zsh
+
+# Other Cask applications
+cask java
