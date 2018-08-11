@@ -12,7 +12,15 @@ fi
 
 ### Exports
 export JAVA_HOME=`/usr/libexec/java_home -v "10"`
+
 export ZPLG_HOME="${ZDOTDIR:-$HOME}/.zplugin"
+
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+
+export GOPATH=$HOME/.go
+export GOROOT=$( go env GOROOT )
+export PATH=$GOPATH/bin:$PATH
 
 ### Zplugin
 source "$ZPLG_HOME/bin/zplugin.zsh"
@@ -21,5 +29,6 @@ autoload -Uz _zplugin
 
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-syntax-highlighting
+
 autoload -Uz compinit
 compinit
