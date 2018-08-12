@@ -33,16 +33,28 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
-
 "End dein Scripts-------------------------
 
-" Global Keymap
+"Plugin Settings -------------------------
+"NERDTree" {{{
+  let NERDTreeShowHidden = 1
+  let file_name = expand("%:p")
+  if has('vim_starting') &&  file_name == ""
+	  autocmd VimEnter * execute 'NERDTree ./'
+	endif
+
+  map <C-t> :NERDTreeToggle<CR>
+"}}}
+"End Plugin Settings----------------------
+
+"Global Keymap----------------------------
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sh <C-w>h
+"End Global Keymap------------------------
 
-" Option
+"Options----------------------------------
 syntax on
 set encoding=utf-8
 set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
@@ -61,3 +73,5 @@ set smartcase
 set showcmd
 set backspace=indent,eol,start
 set number
+"End Options------------------------------
+
