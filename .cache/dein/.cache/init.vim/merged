@@ -1,2 +1,2 @@
 100
-['/Users/a12622/git/dotfiles/.cache/dein/repos/github.com/Shougo/dein.vim', 'Shougo/deol.nvim', 'Shougo/neosnippet-snippets', 'Shougo/neosnippet.vim']
+['Shougo/dein.vim', 'Shougo/denite.nvim', 'Shougo/deoplete.nvim', 'fatih/vim-go', 'zchee/deoplete-go']

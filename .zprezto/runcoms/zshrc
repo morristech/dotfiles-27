@@ -4,6 +4,9 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+export EDITOR='nvim'
+export VISUAL='nvim'
+export PAGER='less'
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/git/dotfiles/.zprezto/init.zsh" ]]; then
@@ -38,4 +41,5 @@ compinit
 
 ### Aliases
 alias vi='nvim'
+alias vim='nvim'
 alias c="clear"

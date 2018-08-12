@@ -4,22 +4,21 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/a12622/git/dotfiles/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/a12622/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/a12622/git/dotfiles/.cache/dein')
-  call dein#begin('/Users/a12622/git/dotfiles/.cache/dein')
+if dein#load_state('/Users/a12622/.cache/dein')
+  call dein#begin('/Users/a12622/.cache/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/Users/a12622/git/dotfiles/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('/Users/a12622/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
+	call dein#load_toml("/Users/a12622/git/dotfiles/.config/nvim/dein.toml", {'lazy': 0})
+	call dein#load_toml("/Users/a12622/git/dotfiles/.config/nvim/dein_lazy.toml", {'lazy': 1})
 
   " You can specify revision/branch/tag.
-  call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
+  "call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
 
   " Required:
   call dein#end()
@@ -31,9 +30,9 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
 
