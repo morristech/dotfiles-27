@@ -5,3 +5,4 @@ on_ft = ['go']
 [[plugins]]
 repo = 'zchee/deoplete-go'
 on_ft = 'go'
+
