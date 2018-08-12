@@ -18,5 +18,7 @@ repo = 'junegunn/fzf.vim'
 depend = 'fzf'
 
 [[plugins]]
-# nerdtree
 repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'whatyouhide/vim-gotham'

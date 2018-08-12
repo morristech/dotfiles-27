@@ -1,2 +1,2 @@
 100
-['Shougo/dein.vim', 'Shougo/denite.nvim', 'fatih/vim-go']
+['Shougo/dein.vim', 'Shougo/denite.nvim', 'Shougo/deoplete.nvim', 'fatih/vim-go', 'junegunn/fzf', 'junegunn/fzf.vim', 'scrooloose/nerdtree', 'zchee/deoplete-go']

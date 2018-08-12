@@ -1,87 +1,145 @@
-denite.nvim
-===========
+# deoplete.nvim
 
-[![Build Status](https://travis-ci.org/Shougo/denite.nvim.svg?branch=master)](https://travis-ci.org/Shougo/denite.nvim)
+> Dark powered asynchronous completion framework for neovim/Vim8
 
-## About
+[![Build Status](https://travis-ci.org/Shougo/deoplete.nvim.svg?branch=master)](https://travis-ci.org/Shougo/deoplete.nvim)
+[![Join the chat at https://gitter.im/Shougo/deoplete.nvim](https://badges.gitter.im/Shougo/deoplete.nvim.svg)](https://gitter.im/Shougo/deoplete.nvim?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Doc](https://img.shields.io/badge/doc-%3Ah%20deoplete-orange.svg)](doc/deoplete.txt)
 
-[![Join the chat at https://gitter.im/Shougo/denite.nvim](https://badges.gitter.im/Shougo/denite.nvim.svg)](https://gitter.im/Shougo/denite.nvim?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+Deoplete is the abbreviation of "dark powered neo-completion".  It
+provides an extensible and asynchronous completion framework for
+neovim/Vim8.
 
-Denite is a dark powered plugin for Neovim/Vim to unite all interfaces.
-It can replace many features or plugins with its interface.
-It is like a fuzzy finder, but is more generic.
-You can extend the interface and create the sources.
+deoplete will display completions via `complete()` by default.
 
-Some things you can do with it include:
+Here are some [completion sources](https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources) specifically made for deoplete.nvim.
 
-* Opening files
+<!-- vim-markdown-toc GFM -->
 
-* Switching buffers
+- [Install](#install)
+  - [Requirements](#requirements)
+- [Configuration](#configuration)
+- [Screenshots](#screenshots)
 
-* Inserting the value of a register
+<!-- vim-markdown-toc -->
 
-* Changing current directory
+## Install
 
-* Searching for a string
+**Note:** deoplete requires Neovim (0.2.0+ and of course, **latest** is
+recommended) or Vim8 with Python3 and timers enabled.  See
+[requirements](#requirements) if you aren't sure whether you have this.
 
-[Unite.vim](https://github.com/Shougo/unite.vim) was meant to be like [Helm](https://github.com/emacs-helm/helm) for Vim.
-But the implementation is ugly and it's very slow.
+For vim-plug
 
-Denite resolves Unite's problems. Here are some of its benefits:
+```viml
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+```
 
-* Theoretically faster because the main process is executed by Python
+For dein.vim
 
-* Theoretically more stable because no other processes can be performed when
-it runs.
+```viml
+call dein#add('Shougo/deoplete.nvim')
+if !has('nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+endif
+let g:deoplete#enable_at_startup = 1
+```
 
-* The implementation is simpler than unite
+For manual installation(not recommended)
 
-* Has greater potential to implement new features
+1. Extract the files and put them in your Neovim or .vim directory
+   (usually `$XDG_CONFIG_HOME/nvim/`).
 
-* Python3 is easier to work with than Vimscript
+2. Write `call deoplete#enable()` or `let g:deoplete#enable_at_startup = 1` in
+   your `init.vim`
 
-* There are a lot of useful tools to keep code simple (linter, tester, etc...)
-in Python3.
+### Requirements
 
-* Unite is officially obsolete, minor bugs (or even major bugs) are
-not fixed anymore
+deoplete requires Neovim or Vim8 with `if_python3`.
 
+If `:echo has("python3")` returns `1`, then you have python 3 support; otherwise, see below.
 
-## Requirements
-
-Denite requires Neovim or Vim8.0+ with `if_python3`.
-If `:echo has("python3")` returns `1`, then you're done; otherwise, see below.
-
-You can enable Python3 interface with `pip`:
+You can enable Python3 interface with pip:
 
     pip3 install neovim
 
+Please install nvim-yarp and vim-hug-neovim-rpc for Vim8.
+
+- <https://github.com/roxma/nvim-yarp>
+- <https://github.com/roxma/vim-hug-neovim-rpc>
+
+**Note: Python3 must be enabled before updating remote plugins**
+
+If Deoplete was installed prior to Python support being added to Neovim,
+`:UpdateRemotePlugins` should be executed manually in order to enable
+auto-completion.
+
+**Note: deoplete needs neovim-python ver.0.2.4+.**
+
+You need update neovim-python module.
+
+    pip3 install --upgrade neovim
+
 If you want to read the Neovim-python/python3 interface install documentation,
-you should read `:help provider-python`.
+you should read `:help provider-python` and the Wiki.
+<https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim>
 
-Note: You need to install Python3.5+ or `pip3 install typing`.
+## Configuration
 
-### For Windows users
-
-1. Install Vim from [Vim Win32 Installer
-   releases](https://github.com/vim/vim-win32-installer/releases)
-2. Download [Python latest embeddable zip
-   file](https://www.python.org/downloads/windows/) and copy the all files in
-   the zip file to the folder where you installed Vim.
-
-**Note:** You need to do 1. and 2. with the common-arch files (x86 or x64).
-
-## Future works (not implemented yet)
-
-* source completion support: `completion(args, arglead)`
-
-* [`defx`](https://github.com/Shougo/defx.nvim) support
-
-* match highlight improvement
+```vim
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+```
 
 ## Screenshots
 
-![file/rec source](https://user-images.githubusercontent.com/13142418/34324674-b8ddd5b8-e840-11e7-9b77-d94e1b084bda.gif)
-![SpaceVim Guide](https://user-images.githubusercontent.com/13142418/34324752-e5a89900-e842-11e7-9f87-6d8789ba3871.gif)
-![colorscheme source](https://user-images.githubusercontent.com/13142418/34324786-f4dd39a2-e843-11e7-97ef-7a48ee04d27b.gif)
+Deoplete for JavaScript
+<https://www.youtube.com/watch?v=oanoPTpiSF4>
 
+![File Name Completion](https://cloud.githubusercontent.com/assets/7141867/11717027/a99cac54-9f73-11e5-91ce-bce9274692e4.png)
+
+![Omni Completion](https://cloud.githubusercontent.com/assets/7141867/11717030/ae809a28-9f73-11e5-8c12-79fe9c460401.png)
+
+![Neosnippets and neco-ghc integration](https://cloud.githubusercontent.com/assets/7141867/11717032/b4159c0e-9f73-11e5-91ee-404e6390366a.png)
+
+![deoplete + echodoc integration](https://github.com/archSeer/nvim-elixir/blob/master/autocomplete.gif)
+
+![deoplete + deoplete-go integration](https://camo.githubusercontent.com/cfdefba43971bd44d466ead357bb296e38d7f88c/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f6c344b6930316d30314939424f485745302f67697068792e676966)
+
+![deoplete + deoplete-typescript integration](https://github.com/mhartington/deoplete-typescript/blob/master/deoplete-tss.gif)
+
+![Python completion using deoplete-jedi](https://cloud.githubusercontent.com/assets/3712731/17458493/8e10d1c0-5c44-11e6-8bd9-964f45365962.gif)
+
+![C++ completion using clang_complete](https://cloud.githubusercontent.com/assets/3712731/17458501/cf88f89e-5c44-11e6-89a4-b4646aaa8021.gif)
+
+![Java completion using vim-javacomplete2](https://cloud.githubusercontent.com/assets/3712731/17458504/f075e76a-5c44-11e6-97d5-c5525f61c4a9.gif)
+
+![Vim Script completion using neco-vim](https://cloud.githubusercontent.com/assets/3712731/17461000/660e15be-5caf-11e6-8c02-eb9f9c169f3c.gif)
+
+![C# completion using deoplete-omnisharp](https://camo.githubusercontent.com/f429dc72f91b25619980dbb9d436065ba3fb0a44/68747470733a2f2f692e696d6775722e636f6d2f464e634c4441752e676966)
+
+![Register/Extract list completions](https://camo.githubusercontent.com/6a6df993ad0e05c014c72c8f8702447f9b34ad90/68747470733a2f2f692e696d6775722e636f6d2f5131663731744a2e676966)
+
+![FSharp completion using deopletefs](https://github.com/callmekohei/deoplete-fsharp/blob/master/pic/sample.gif)
+
+![Typescript](https://user-images.githubusercontent.com/29815830/36537450-bfbf4884-1802-11e8-8ad4-dd4a0dccfed3.png)
+
+![Javascript](https://user-images.githubusercontent.com/29815830/36537514-ef01ef7a-1802-11e8-944e-c33017dfbe2b.png)
+
+![Css, scss, sass](https://user-images.githubusercontent.com/29815830/36537545-1184f10a-1803-11e8-81a1-097222a58752.png)
+
+![Html](https://user-images.githubusercontent.com/29815830/36537602-40b19848-1803-11e8-8ac8-49b3b9ba2094.png)
+
+![My custom snippets](https://user-images.githubusercontent.com/29815830/36537646-6578262e-1803-11e8-9bff-64874a606150.png)
+
+![C++ with cquery lang server](https://user-images.githubusercontent.com/1750795/38780762-7c74e51e-40a9-11e8-92f9-dee921555865.png)
+
+![Rust using rls](https://user-images.githubusercontent.com/1750795/38780764-8524b0b8-40a9-11e8-91bc-6e4148c398a3.png)

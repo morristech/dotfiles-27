@@ -10,15 +10,16 @@ install: vim-themis
 	pip install flake8 --upgrade
 	pip install mypy --upgrade
 	pip install vim-vint --upgrade
+	pip install pytest-cov --upgrade
 
 lint:
 	vint --version
 	vint plugin
 	vint autoload
 	flake8 --version
-	flake8 rplugin/python3/denite
+	flake8 rplugin/python3/deoplete
 	mypy --version
-	mypy --ignore-missing-imports --follow-imports=skip rplugin/python3/denite
+	mypy --ignore-missing-imports --follow-imports=skip rplugin/python3/deoplete
 
 test:
 	themis --version
