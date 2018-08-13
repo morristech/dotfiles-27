@@ -14,8 +14,8 @@ if dein#load_state('/Users/a12622/.cache/dein')
   " Required:
   call dein#add('/Users/a12622/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-	call dein#load_toml("/Users/a12622/git/dotfiles/.config/nvim/dein.toml", {'lazy': 0})
-	call dein#load_toml("/Users/a12622/git/dotfiles/.config/nvim/dein_lazy.toml", {'lazy': 1})
+	call dein#load_toml("/Users/a12622/.config/nvim/dein.toml", {'lazy': 0})
+	call dein#load_toml("/Users/a12622/.config/nvim/dein_lazy.toml", {'lazy': 1})
 
   " You can specify revision/branch/tag.
   "call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
