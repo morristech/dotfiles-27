@@ -2,6 +2,8 @@
 # tap repositories and their packages
 
 tap homebrew/core
+brew circleci
+brew docker
 brew gdbm
 brew gettext
 brew git
@@ -9,6 +11,7 @@ brew go
 brew gradle
 brew icu4c
 brew jemalloc
+brew kotlin
 brew libtermkey
 brew libuv
 brew libvterm
@@ -20,7 +23,10 @@ brew neovim
 brew node
 brew openssl
 brew perl
+brew pidcat
+brew protobuf
 brew python
+brew python@2
 brew readline
 brew ruby
 brew sqlite
@@ -31,11 +37,20 @@ brew xz
 brew zsh
 
 tap homebrew/cask-versions
+cask java8
 
 tap homebrew/cask
 cask java
 
 tap argon/mas
 
+tap jesseduffield/lazygit
+brew lazygit
+
 tap rcmdnk/file
 brew brew-file
+
+# App Store applications
+appstore 1054607607 Helium (2.0)
+appstore 409183694 Keynote (8.1)
+appstore 497799835 Xcode (9.4.1)
