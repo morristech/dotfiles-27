@@ -14,14 +14,14 @@ if [[ -s "${ZDOTDIR:-$HOME}/git/dotfiles/.zprezto/init.zsh" ]]; then
 fi
 
 ### Exports
-export JAVA_HOME=`/usr/libexec/java_home -v "10"`
+export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
 
 export ZPLG_HOME="${ZDOTDIR:-$HOME}/.zplugin"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$PATH
 
 export GOPATH=$HOME/.go
 export GOROOT=$( go env GOROOT )
